@@ -1,7 +1,9 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :reviewable, polymorphic: true
-
+  before_save :ensure_count_is_initialized
+  after_create :increase_review_count
+  after_destroy :decrease_review_count
   private
 
   def ensure_count_is_initialized
