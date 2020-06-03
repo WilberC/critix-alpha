@@ -1,0 +1,12 @@
+<h1><%= @company.name %></h1>
+<p><%= @company.description %></p>
+<ul>
+  <li>Start date: <%= @company.start_date %></li>
+  <li>Country: <%= @company.country %>  </li>
+</ul>
+
+<p>
+  <%= link_to "edit Company", edit_company_path %>
+  <%= link_to "delete Company", company_path, method: :delete, data: {confirm: "sure?"} %>
+</p>
+<%= link_to "back to Companies", companies_path %>
